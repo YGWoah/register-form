@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+*{
+    font-family: 'Bebas Neue', cursive;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #1D1C1B;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header{
+    width: 100vw;
+}
+
+.header div{
+    margin-left: 16vw;
+    background-color: #E8BE13;
+    font-size: 36px;
+}
+
+.parag{
+    padding-left: 8vw;
+    padding-top: 4.5vh;
+    padding-bottom:4.5vh;
+}
+
+.form-0{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-1{
+    width: 100vw;
+}
+
+.form-1 div{
+    margin-top:11vh;
+    margin-bottom: 0;
+    margin-left: 7vw;
+    font-size: 30px;
+    color: white;
+}
+
+.form-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+.form-2 input{
+    outline: none;
+    background:transparent;
+    font-size: 1.563rem;
+    border: none;
+    border-bottom: 2px solid #C4C4C4;
+    width: 89vw;
+    margin:3vw 3vw 3vw 3vw;
+    padding-bottom: 0.6vh;
+    padding-left: 1.2vh;
+    color: #C4C4C4;
+}
+
+.form-2 input[type=submit]{
+    background-color: #E8BE13;
+    color: black;
+    border:0;
+    width: 47vw;
+    margin-top: 5.1vw;
+    font: 25px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 0;
+}
+
+.list ul{
+    list-style-type: none;
+    display: flex;
+}
+
+.in-image{
+    width: 11.2vw;
+    height: 5.17vh;
+    padding: 2.6vw 1.23vh;
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1020px){
+    *{
+        margin: 0;
+    }
+    .header div{
+        margin-left: 10.75vw;
+        font-size: 68px;
+    }
+
+    .parag{
+        padding-left: 7.39vw;
+        padding-top: 6.3vh;
+        padding-bottom:6.3vh;
+    }
+
+    .form-1 div{
+        margin-top:10.4vh;
+        margin-bottom: 0;
+        margin-left: 10.75vw;
+        font-size: 43px;
+    }
+
+    .form-2 input{
+        font-size: 1.563rem;
+        border-bottom: 2px solid #C4C4C4;
+        width: 77vw;
+        margin:3vw 3vw 3vw 3vw;
+        padding-bottom: 0.6vh;
+        padding-left: 1.2vh;
+    }
+
+    .form-2 input[type=submit]{
+        border:0;
+        width: 36vw;
+        margin-top: 5.1vw;
+        font: 39px;
+        padding-top: 1.3vh;
+        padding-bottom: 1vh;
+        padding-left: 0;
+        cursor: pointer;
+    }
+
+    .in-image{
+        width: 8.6vw;
+        height: 5.2vh;
+        padding: 2.6vw 1.23vh;
+    }
+
+}
+
+
+@media only screen and (min-width: 1021px){
+    .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .header{
+        width: 42vw;
+    }
+    
+    .header div{
+        margin:0;
+        background-color: #E8BE13;
+        font-size:5.1vw;
+    }
+    
+    .parag{
+        padding-left: 5.3vw;
+        padding-right: 5.3vw;
+        padding-top: 31.1vh;
+        padding-bottom:43vh;
+    }
+    
+    .form-0{
+        width: 58vw;
+    }
+    
+    .form-1{
+        width: 55.9vw;
+    }
+    
+    .form-1 div{
+        margin-top:0vw;
+        margin-bottom: 0;
+        margin-left: 7.9vw;
+        font-size: 3.95vw;
+    }
+    
+    .form-2{
+        width:auto;
+    }
+    
+    .form-2 input{
+        font-size: 2.36vw;
+        border-bottom: 2px solid #C4C4C4;
+        width: 39.7vw;
+        margin:0;
+        padding-bottom: 0.6vh;
+        padding-left: 1.2vh;
+    }
+    
+    .form-2 input[type=submit]{
+        background-color: #E8BE13;
+        color: black;
+        border:0;
+        width: 18.6vw;
+        margin-top: 6.7vw;
+        font: 2.91;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+        padding-left: 0;
+    }
+    
+    
+    .in-image{
+        width: 11.2vw;
+        height: 5.17vh;
+        padding: 2.6vw 1.23vh;
+    }
+    
+    .list{
+        display: none;
+    }
+    
+}
+
+
+
