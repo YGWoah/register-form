@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="42px"
+   height="42px"
+   viewBox="0 0 42 42"
+   version="1.1"
+   id="SVGRoot"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="send.svg">
+  <defs
+     id="defs129">
+    <style
+       id="style194">.cls-1{fill:none;}</style>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="6.0952381"
+     inkscape:cx="21"
+     inkscape:cy="21"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="1024"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:grid-bbox="true" />
+  <metadata
+     id="metadata132">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g211"
+       transform="matrix(1.3486328,0,0,1.3076172,0.0781245,-0.25)">
+      <path
+         id="path200"
+         d="m 27.45,15.11 -22,-11 a 1,1 0 0 0 -1.08,0.12 1,1 0 0 0 -0.33,1 L 7,16 4,26.74 A 1,1 0 0 0 5,28 1,1 0 0 0 5.45,27.89 l 22,-11 a 1,1 0 0 0 0,-1.78 z M 6.55,25.11 8.76,17 H 18 V 15 H 8.76 L 6.55,6.89 24.76,16 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#ffffff" />
+      <rect
+         height="32"
+         width="32"
+         class="cls-1"
+         data-name="&lt;Transparent Rectangle&gt;"
+         id="_Transparent_Rectangle_"
+         x="0"
+         y="0"
+         style="fill:none" />
+    </g>
+  </g>
+</svg>

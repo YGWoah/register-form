@@ -1,0 +1,14 @@
+.single-msg-sction{
+    padding: 0.25rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.single-msg-sction p{
+    padding: 0.5rem;
+    background-color: #2F98F9;
+    color: white;
+    font-size: 14px;
+    border-radius: 6px;
+}

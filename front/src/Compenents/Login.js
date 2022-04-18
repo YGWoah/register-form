@@ -1,28 +1,33 @@
-import React, { useState } from 'react'
+import React from 'react'
+import './styles/loginStyles.css'
+import  { useState } from 'react'
 import './style.css'
 import axios from 'axios'
+import { Link,useNavigate ,Navigate} from 'react-router-dom'
 
 const Login = () => {
+    const navigate = useNavigate();
     const [loginInfo,setLoginInfo] = useState({
-        name :'',lastname:'',email:'',password:''
+        email:'',password:''
     })
+    const [isLogged,setIsLogged] = useState(false)
+    const [id,setId] = useState(0)
     const handleSubmit = async ()=>{
+        
         await axios.post('/login',loginInfo)
         .then((res)=>{
-            console.log(res)
+            if(res.data.succes){
+                setId(res.data.userID)
+                localStorage.setItem('email',loginInfo.email);
+                localStorage.setItem('password',loginInfo.password);
+                setIsLogged(true)
+                //navigate('profile',{replace:false},)
+            }
+            console.log(res.data.succes)
         }).catch((error)=>{
             console.log(error);
         })
-    }
-
-    const handlenameChange = (e)=>{
-        let tempname = e.target.value
-        setLoginInfo({...loginInfo,name:tempname})
-    }
-
-    const handleLastnameChange = (e)=>{
-        let tempLastname = e.target.value
-        setLoginInfo({...loginInfo,lastname:tempLastname})
+        
     }
 
     const handleEmailChange = (e)=>{
@@ -38,35 +43,35 @@ const Login = () => {
 
   return (
     <div>
-        <div className="container">
-            <div className="header">
-                <div >
-                    <p className="parag">
-                        JOIN US SO YOu CAN<br/>GET THE WHOLE<br/>EXEPERIENCE
-                    </p>
-                </div>
-            </div>
-            <div className="form-0">
-                <div className="form-1">
-                    <div>
-                        <p>JOIN THE GANG</p>
-                    </div>    
-                </div>
-                <div>
-                    <form className="form-2" >
-                        <input type="text" name="firstName" placeholder="First Name" onChange={handlenameChange} required/>
-                        <input type="text" name="lastName" placeholder="Last Name" onChange={handleLastnameChange}/>
-                        <input type="email" name="email" placeholder="email@exemple.com" onChange={handleEmailChange} />
-                        <input type="password" name="password" placeholder="Password" onChange={handlePasswordchange} />
-                        <input type="button" value="Register" onClick={handleSubmit} />
-                        
-                    </form>
-                    
-                </div>
-            </div>
-        </div>
+        <div className="big-container">
+                      <div className="container flex-row">
+                          
+                          <div className="chiaar">
+                              <div className="big-chiaar">
+                                  <h3>
+                                      Welcome again<span >.</span>
+                                  </h3>
+                              </div>
+                              <div className="small-chiaar">
+                                  <p>
+                                      Don't have an account? <span><Link to="/signin">Sign up</Link></span>
+                                  </p>
+                              </div>
+                              <form className="signInForm">
+                                  <input type="email" name="email" placeholder="email@exemple.com" onChange={handleEmailChange} required/>
+                                  <input type="password" name="password" placeholder="Password" onChange={handlePasswordchange} required/>
+                                  <input type="button" value="Register" onClick={handleSubmit} />
+                                  <br/>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+                  {isLogged?(<Navigate to="/profile" />):("")}
     </div>
   )
 }
 
 export default Login
+
+
+

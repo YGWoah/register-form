@@ -1,0 +1,64 @@
+.message-section{
+    display: flex;
+    padding: 1rem;
+    margin: 0.5rem;
+    flex-grow: 1;
+    background-color: #020314;
+    border-radius: 16px;
+}
+.chatt-container{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.contact-head{
+    display: flex;
+    align-items: center;
+    flex-grow: 0;
+    
+}
+
+.contact-head img{
+    width: 2.5rem;
+    cursor: pointer;
+}
+
+.contact-head h5{
+    font-weight: 400;
+    font-size: 1rem;
+    padding-left: 0.25rem;
+    cursor: pointer;
+
+}
+
+.chatt{
+display: flex;
+flex-direction: column;
+flex-grow: 1;
+}
+
+.write-msg{
+    width: 100%;
+    display: flex;
+    flex-grow: 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.write-msg input{
+    width: 90%;
+    color: white;
+    background-color: rgba(196, 196, 196, 0.3);
+    padding: 1.25rem ;
+    margin: 1rem;
+    outline: none;
+    border: none;
+    height: 2rem;
+    border-radius: 6px;
+}
+
+.write-msg img {
+    width: 2rem;
+    cursor: pointer;
+    margin: 1rem;
+}

@@ -1,0 +1,15 @@
+.rc-single-msg-sction{
+    margin-left: 1rem;
+    padding: 0.25rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.rc-single-msg-sction p{
+    padding: 0.5rem;
+    background-color: rgba(196, 196, 196, 0.5);
+    color: white;
+    font-size: 14px;
+    border-radius: 6px;
+}

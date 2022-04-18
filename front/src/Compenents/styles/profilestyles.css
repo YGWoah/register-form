@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.profile-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-grow: 0;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.head{
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #020314;
+    border-radius: 1rem;
+    
+    margin: 1rem 1rem 0.5rem 1rem ;
+}
+
+.head>div p{
+    font-size: 20px;
+}
+
+.head>div img{
+    width: 32px;
+}
+
+.sub-head{
+    width: 33%;
+    display: flex;
+    justify-content: space-between;
+}
+.sub-head+div{
+    width: 70%;
+}
+
+.sub-head>div input{
+    outline: none;
+    background-color: #c4c4c456;
+    height: 2rem;
+    font-size: 14px;
+    padding-left: 10px;
+    border: none;
+    border-radius: 6px;
+}
+
+.coore{
+    width: 98%; 
+    display: flex ;
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.chats{
+    width: 35%;
+    display: flex ;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 1rem;
+    margin: 0.5rem;
+    background-color: #020314;
+    border-radius: 16px;
+}
+
+.chats h5{
+    flex-grow: 0;
+    font-weight: 400;
+    font-size: 1.125rem;
+    margin:1rem 0;
+}
+
+.chats ul{
+    flex-grow: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.chats ul li{
+    display: flex;
+    padding: 0.5rem;
+    justify-content: center;
+    background-color: #2F98F9;
+    border-radius: 6px;
+    width: 4.5rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+.message-section{
+    width: 65%;
+}
+
