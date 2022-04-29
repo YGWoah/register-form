@@ -23,6 +23,7 @@
     padding-left: 10px;
     margin-top:20px ;
     box-shadow: 3px 3px 4px rgba(53, 53, 53, 0.25);
+    color: #000000;
 }
 
 .signInForm input[type="button"]{

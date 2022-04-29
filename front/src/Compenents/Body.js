@@ -7,7 +7,7 @@ const Body = () => {
   const [items, setItems] = useState([])
   const name="hamza"
   useEffect(()=>{
-    fetch("/student?name="+name).then(res=>res.json()).then(result=>{
+    fetch("http://localhost:5501/api/hh",{em:"mm"}).then(res=>res.json()).then(result=>{
       setItems(result.value)
       setIsLoaded(true)
       console.log(result)

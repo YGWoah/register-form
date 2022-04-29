@@ -12,7 +12,7 @@ const SignIn = () => {
         name :'',lastname:'',email:'',password:''
     })
     const handleSubmit = async ()=>{
-        await axios.post('/signin',loginInfo)
+        await axios.post('http://localhost:5501/api/signin',loginInfo)
         .then((res)=>{
             console.log(res.status)
             if(res.status===400){

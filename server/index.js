@@ -3,53 +3,61 @@ const app = express()
 const session = require('express-session');
 const {dbConnect} = require('./database')
 const bodyPsrser = require('body-parser')
-const {auth} = require('./_middleware/auth')
 const {getIdByEmail} = require('./helpers/getIdByEmail');
-const restricted = require('./_middleware/restricted')
+const cors = require('cors')
+const login = require('./routers/login-roter')
+const api = require('./routers/api')
+const cookieParser = require('cookie-parser')
+const mysqlstore = require('express-mysql-session')
+const env = require('dotenv')
 //
+
+
+
+const corsOptions = {
+    credentials: true,
+    origin: 'http://localhost:3000',
+    sameSite: 'None',
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+    
+}
+
+const options ={
+    connectionLimit: 10,
+    password: '',
+    user: "root",
+    database: "sessionDB",
+    host: process.env.DB_HOST,
+    port:3306,
+    createDatabaseTable: true
+    
+}
+
+const sessionStore = new mysqlstore(options)
 
 const sessionConfig = {
     name: "monster",
     secret:"Whatsap",
+    store: sessionStore,
     cookie: {
         maxAge: 1000*60*60,
         secure: false, // for production set to true
-        httpOnly :true,
+        httpOnly :false,
     },
     resave: false,
-    saveUninitialized: true,  
+    saveUninitialized: true
 }
 
 //middlewares
-app.use(express.urlencoded({ extended: false }))
-app.use(bodyPsrser.json())
+app.use(cors(corsOptions))
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
 app.use(session(sessionConfig));
+app.use(cookieParser())
+app.use('/api',api);
+app.use('/wiki',login);
 
-
-
-app.post('/signin',(req,res)=>{
-    const {name,lastname,email,password} = req.body
-    console.log("request is hapening ");
-    if(name.length==0||lastname.leangth==0){
-        res.status(400).json({succese : false})
-        return
-    }else{
-        const connection = dbConnect('myDB')
-        connection.connect((err)=>{
-            if(err) throw err;
-            connection.query(`INSERT INTO users (LastName, FirstName, email, password) VALUES ('${name}', '${lastname}', '${email}', '${lastname}')`,(err,result,feilds)=>{
-                if(err) throw err
-                res.status(200).json({succese : true})
-                
-            })
-            connection.end()
-        })
-    }
-})
-
-app.post('/login',[auth,restricted],(req,res)=>{
-    console.log("The auth is done")
-})
 
 
 app.get('/getcontacts',(req,res)=>{
@@ -67,6 +75,6 @@ app.get('/getcontacts',(req,res)=>{
         })
 })
 
-app.listen(5500,()=>{
-    console.log("the server is starting at 5500");
+app.listen(5501,()=>{
+    console.log("the server is starting at 5501");
 })

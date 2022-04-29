@@ -6,20 +6,19 @@ import axios from 'axios'
 import { Link,useNavigate ,Navigate} from 'react-router-dom'
 
 const Login = () => {
+    axios.defaults.withCredentials = true
     const navigate = useNavigate();
     const [loginInfo,setLoginInfo] = useState({
         email:'',password:''
     })
     const [isLogged,setIsLogged] = useState(false)
     const [id,setId] = useState(0)
+
     const handleSubmit = async ()=>{
-        
-        await axios.post('/login',loginInfo)
+        await axios.post('http://localhost:5501/api/login',loginInfo)
         .then((res)=>{
             if(res.data.succes){
                 setId(res.data.userID)
-                localStorage.setItem('email',loginInfo.email);
-                localStorage.setItem('password',loginInfo.password);
                 setIsLogged(true)
                 //navigate('profile',{replace:false},)
             }

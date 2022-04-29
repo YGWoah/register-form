@@ -1,15 +1,18 @@
 {
   "name": "test",
   "version": "0.1.0",
-  "proxy": "http://localhost:5500",
+  "proxy": "http://localhost:5501",
   "private": true,
   "dependencies": {
     "axios": "^0.26.1",
     "dummy-component": "git+https://github.com/recraftrelic/dummy-react-npm-module.git",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^8.0.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "3.0.1",
+    "redux": "^4.2.0",
+    "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.5"
   },
   "scripts": {

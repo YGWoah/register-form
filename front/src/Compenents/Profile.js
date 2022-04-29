@@ -8,57 +8,53 @@ import Contact from './subCompenents/Contact'
 import Message from './subCompenents/Message'
 
 
-const Profile = (props) => {
-  let id = props.id
+const Profile = () => {
+  axios.defaults.withCredentials=true;
     useEffect(()=>{
-        console.log(localStorage.getItem('logininfo'))
-        console.log(localStorage.getItem('g'))
-
+        getContacts()
     },[])
-    const [isRespond,setIsRespond] = useState(false)
-    const [response,setResponce] = useState({})
-    const getData = async ()=>{
-      const response = await axios.post(`/getdata?userID=${id}`)
-      .then((res)=>{
-        setResponce(res.data.data)
-        console.log(res.data.data)
-        setIsRespond(true)
-      }).catch((error)=>{
-        console.log(error);
-    })
-    }
-    const getImapge = ()=>{
-      axios.get('https://ui-avatars.com/api/?background=0D8ABC&color=fff')
-      .then((res)=>{
-        console.log(res)
-      }).catch((error)=>{
-        console.log(error)
-      })
-    }
-
-    const handleEnter = (e)=>{
+    
+    
+    const handleEnter = async (e)=>{
       if(e.keyCode===13){
-        
+        await axios.post('http://localhost:5501/api/addcontact',{userEmail:e.target.value})
+        .then((res)=>{console.log(res);})
+        .catch((eroor)=>{
+          console.log(("error"));
+        })
       }
     }
-    const [contacts,setContacts]=useState({})
-    const getContacts = ()=>{
-      axios.get('./getcontacts',{email:"hasan"})
-      .then((res)=>{
-        setContacts(res);
-      })
+    const [contactLoaded,setContactLoaded] = useState(false)
+    const [contacts,setContacts]=useState([])
+    const getContacts = async ()=>{
+      await axios.get('http://localhost:5501/api/allcontacts')
+        .then((res)=>{
+            setContacts(res.data.data.resp)
+            setContactLoaded(true)
+        }).catch((error)=>{
+            console.log(error);
+        })
     }
     
-    //just for testing
     useEffect(()=>{
-    console.log(response);
-    
-    },[response])
-
-    useEffect(()=>{
+      console.log("contacts")
       console.log(contacts);
+      displayContacts()
     },[contacts])
+  let  dispalyedContact;
+  const displayContacts = ()=>{
     
+    dispalyedContact=contacts.map((contact) => 
+      {return <Contact name={contact.LastName+contact.LastName} message={"Call out my name"} time={"now"}/>
+      })
+      console.log(dispalyedContact)
+    document.getElementsByClassName("contacts").textContent = "dispalyedContact"; 
+     
+  }  
+  const [mainContact,setMainContact] = useState("...5")
+  const handleContactOnClick = (e)=>{
+    console.log("name:",e.target.name)
+  }
   return (
     <div>
       <div className='profile-container'>
@@ -85,14 +81,13 @@ const Profile = (props) => {
                 <li>Unread</li>
               </ul>
               <div className='contacts'>
-                <Contact name={"The wkknd"} message={"Call out my name"} time={"now"}/>
-                <Contact name={"YG Woah"} message={"Hello wssp"} time={"12m"}/>
-                <Contact name={"Alhassan Zakriti"} message={"if i wont die for you"} time={"2h"}/>
-
+                {contactLoaded?(contacts.map((contact) => { 
+                  return <Contact email={contact.email} name={contact.LastName+" "+contact.LastName} message={"Call out my name"} time={"now"} onclick={(e)=>handleContactOnClick}/>
+                })):"Loading.."}
               </div>
             </div>
             <div className='message-section' >
-              <Message/>
+              <Message  />
             </div>
           </div>
       </div>

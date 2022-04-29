@@ -1,8 +1,10 @@
 const {dbConnect} = require('../database')
-
+const {getIdByEmail} = require('../helpers/getIdByEmail')
 const auth = (req,res,next)=>{
+    console.log("in auth finction");
     try{
         const {email,password} = req.body
+    
         const connection = dbConnect('myDB')
         connection.query(`SELECT * FROM users WHERE email = '${email}'`,(err,result,feilds)=>{
             if(err) {res.status(400).json({succes:false});
@@ -13,12 +15,18 @@ const auth = (req,res,next)=>{
             console.log("EMAIL :",email)
             if(data[0]!=undefined){
                 if(password==data[0].password){
-                    res.json({succes:true,id:data[0].userID})
+                    getIdByEmail(email,connection).then((resp)=>{
+                        req.session.user={id:resp,email:email,password:password}
+                        res.status(200).json({succes:true})
+                        console.log("req.session.user:")
+                        console.log(req.session);
+                    })
+                    
                 }else{
-                    res.status(401).json({succes:false})
+                    return res.status(401).json({succes:false})
                 }
             }else{
-                res.status(402).json({succes:false})
+                return res.status(402).json({succes:false})
             }
             
             next()
